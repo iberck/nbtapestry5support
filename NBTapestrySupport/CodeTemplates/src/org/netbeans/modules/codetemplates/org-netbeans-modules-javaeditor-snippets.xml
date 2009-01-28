@@ -12,8 +12,8 @@ ${CONTEXT_TYPE} onPassivate() {
     // TODO Add content here
     return null;
 }
-
         </code>
+        <description>creates the onActivate and onPassivate methods</description>
     </codetemplate>
     <codetemplate abbreviation="tonformevents" xml:space="preserve">
         <code>// Start form events
@@ -53,13 +53,11 @@ void onSubmit() {
     // TODO Add content here
 }
 // End form Events
-
         </code>
     </codetemplate>
     <codetemplate abbreviation="tinjectpage" xml:space="preserve">
         <code>@InjectPage
 private ${PAGE_NAME default=PageType} ${PROPERTY_NAME default=pageName};
-
         </code>
     </codetemplate>
     <codetemplate abbreviation="tonaction" xml:space="preserve">
@@ -68,14 +66,14 @@ ${RETURN_TYPE default=Object} onActionFrom${COMPONENT}(${cursor}) {
     // TODO Add content
     return null;
 }
-
         </code>
+        <description>Creates the form method events</description>
     </codetemplate>
     <codetemplate abbreviation="tcomponent" xml:space="preserve">
         <code>@Component(id = "${COMPONENT_ID default=componentId}", parameters = {"${PARAMETERS default=value=message}"})
 private ${COMPONENT_TYPE default="ComponentType"} ${COMPONENT_ID};
-
         </code>
+        <description>Crates a component</description>
     </codetemplate>
     <codetemplate abbreviation="tontranslator" xml:space="preserve">
         <code>@OnEvent(value = EventConstants.TO_CLIENT, component="${COMPONENT default=ComponentName}")
@@ -92,44 +90,24 @@ Object onParseClientFrom${COMPONENT}(String input) {
     // TODO Add content here
     return null;
 }
-
         </code>
+        <description>creates the methods that intercept the translator of a component</description>
     </codetemplate>
     <codetemplate abbreviation="tprop" xml:space="preserve">
         <code>@Property
 private ${CLASS_TYPE default="Object"} ${PROP_NAME default="prop"};
-
         </code>
+        <description>creates a property</description>
     </codetemplate>
     <codetemplate abbreviation="taso" xml:space="preserve">
         <code>@ApplicationState
 private ${ASO_TYPE default="ASOType"} ${ASO_NAME default="asoName"};
-
         </code>
+        <description>puts an Application State Object</description>
     </codetemplate>
     <codetemplate abbreviation="tjs" xml:space="preserve">
-        <code>@IncludeJavaScriptLibrary("${JS default=tapestry.scriptaculous}/dragdrop.js")
-
-        </code>
-    </codetemplate>
-    <codetemplate abbreviation="ttest" xml:space="preserve">
-        <code>${parmname default="my-default-value" editable="false"}
-        </code>
-    </codetemplate>
-    <codetemplate abbreviation="jaxbu" xml:space="preserve">
-        <code>
-            try {
-                javax.xml.bind.JAXBContext jaxbCtx = javax.xml.bind.JAXBContext.newInstance(${UM_OBJ instanceof="java.lang.Object" default="umObj"}.getClass().getPackage().getName());
-                javax.xml.bind.Unmarshaller unmarshaller = jaxbCtx.createUnmarshaller();
-                ${UM_OBJ} = ${TYPE_CAST cast default=""} unmarshaller.unmarshal(new java.io.File("File path")); //NOI18N
-            } catch (javax.xml.bind.JAXBException ex) {
-                // XXXTODO Handle exception
-                java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
-            }
-        
-        </code>
-        <description>Sample template to unmarshal JAXB objects.
-        </description>
+        <code>@IncludeJavaScriptLibrary("${JS default=tapestry.scriptaculous}/dragdrop.js")</code>
+        <description>Includes the IncludeJavaScript annotation</description>
     </codetemplate>
     <codetemplate abbreviation="tonsetuprender" xml:space="preserve">
         <code>@SetupRender
@@ -137,8 +115,8 @@ void setupRender() {
     // TODO Add content here
     ${cursor}
 }
-
         </code>
+        <description>Adds the setupRender event</description>
     </codetemplate>
     <codetemplate abbreviation="tonrendercomponent" xml:space="preserve">
         <code>// Start component render
@@ -183,16 +161,15 @@ void cleanupRender() {
     // TODO Add content here
 }
 // End component render
-
         </code>
+        <description>Crates the methods that renders the component</description>
     </codetemplate>
     <codetemplate abbreviation="tasset" xml:space="preserve">
         <code>@Inject
 @Path("${PATH default=context:images/tapestry_banner.gif}")
 private Asset ${ASSET_NAME default=assetName};
-
-
         </code>
+        <description>Puts an asset</description>
     </codetemplate>
     <codetemplate abbreviation="tonexception" xml:space="preserve">
         <code>@OnEvent("exception")
@@ -201,8 +178,8 @@ Object onException(Throwable cause) {
     ${cursor}
     return this;
 }
-
         </code>
+        <description>Create the method that intercepts action exceptions</description>
     </codetemplate>
     <codetemplate abbreviation="tonpassivate" xml:space="preserve">
         <code>@OnEvent(EventConstants.PASSIVATE)
@@ -210,44 +187,27 @@ ${RETURN_TYPE default="Object"} onPassivate() {
     // TODO Add content here
     return null;
 }
-
         </code>
+        <description>creates the onPassivate method</description>
     </codetemplate>
     <codetemplate abbreviation="tcss" xml:space="preserve">
-        <code>@IncludeStylesheet("${CSS default=context:css/style.css}")
-
-        </code>
-    </codetemplate>
-    <codetemplate abbreviation="jaxbm" xml:space="preserve">
-        <code>try {
-                javax.xml.bind.JAXBContext jaxbCtx= javax.xml.bind.JAXBContext.newInstance( ${OBJ2M instanceof="java.lang.Object" default="obj2BMarshalled"}.getClass().getPackage().getName());
-                javax.xml.bind.Marshaller marshaller = jaxbCtx.createMarshaller();
-                marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_ENCODING, "UTF-8"); //NOI18N
-                marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-                marshaller.marshal(${OBJ2M} , System.out);
-            } catch (javax.xml.bind.JAXBException ex) {
-                // XXXTODO Handle exception
-                java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
-        }
-        </code>
-        <description>Sample template to marshal JAXB objects.
-        </description>
+        <code>@IncludeStylesheet("${CSS default=context:css/style.css}")</code>
+        <description>Puts the IncludeStylesheet annotation</description>
     </codetemplate>
     <codetemplate abbreviation="tonactivate" xml:space="preserve">
         <code>@OnEvent(EventConstants.ACTIVATE)
 void onActivate(${cursor}) {
     // TODO Add content here
 }
-
         </code>
+        <description>creates the onActivate method</description>
     </codetemplate>
     <codetemplate abbreviation="tpagelifecycle" xml:space="preserve">
         <code>@PageLoaded
 void onPageLoaded() {
-    ${cursor}
     // TODO Add content here
+    ${cursor}
 }
-
 
 @PageAttached
 void onPageAttached() {
@@ -258,8 +218,8 @@ void onPageAttached() {
 void onPageDetached() {
     // TODO Add content here
 }
-
         </code>
+        <description>creates the page lifecycle methods</description>
     </codetemplate>
     <codetemplate abbreviation="tonvalidate" xml:space="preserve">
         <code>@OnEvent(value = EventConstants.VALIDATE, component = "${COMPONENT default=ComponentName}")
@@ -269,19 +229,19 @@ void onValidateFrom${COMPONENT}(${VALUE_COMPONENT default="Integer"} value) thro
     //    }
     // TODO Add content here
 }
-
         </code>
+        <description>crates the method that intercepts the validator of a component, this is useful in business validations</description>
     </codetemplate>
     <codetemplate abbreviation="tinject" xml:space="preserve">
         <code>@Inject
-private ${INJECT_TYPE default=ClassType} {$PROPERTY_NAME propertyName};
-
+private ${INJECT_TYPE default=ClassType} ${PROPERTY_NAME propertyName};
         </code>
+        <description>Inserts the Inject annotation</description>
     </codetemplate>
     <codetemplate abbreviation="tlog" xml:space="preserve">
         <code>@Inject
 private Logger log;
-
         </code>
+        <description>Puts the Log annotation</description>
     </codetemplate>
 </codetemplates>
