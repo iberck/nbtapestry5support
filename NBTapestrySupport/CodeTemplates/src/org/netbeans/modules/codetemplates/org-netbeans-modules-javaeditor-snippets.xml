@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+<codetemplates>
+    <codetemplate abbreviation="toncontext" xml:space="preserve">
+        <code><![CDATA[@OnEvent(EventConstants.ACTIVATE)
+void onActivate(${CONTEXT_TYPE default="Object"} param) {
+    // TODO Add content here
+}
+
+@OnEvent(EventConstants.PASSIVATE)
+${CONTEXT_TYPE} onPassivate() {
+    // TODO Add content here
+    return null;
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tonformevents" xml:space="preserve">
+        <code><![CDATA[// Start form events
+@OnEvent(EventConstants.PREPARE_FOR_SUBMIT)
+void prepareForSubmit() {
+    ${cursor}
+    // TODO Add content here
+}
+
+@OnEvent(EventConstants.PREPARE_FOR_RENDER)
+void prepareForRender() {
+    // TODO Add content here
+}
+
+@OnEvent(EventConstants.PREPARE)
+void prepare() {
+    // TODO Add content here
+}
+
+@OnEvent(EventConstants.VALIDATE_FORM)
+void validateForm() {
+    // TODO Add content here
+}
+
+@OnEvent(EventConstants.FAILURE)
+void failure() {
+    // TODO Add content here
+}
+
+@OnEvent(EventConstants.SUCCESS)
+void onSuccess() {
+    // TODO Add content here
+}
+
+@OnEvent(EventConstants.SUBMIT)
+void onSubmit() {
+    // TODO Add content here
+}
+// End form Events
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tinjectpage" xml:space="preserve">
+        <code><![CDATA[@InjectPage
+private ${PAGE_NAME default=PageType} ${PROPERTY_NAME default=pageName};
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tonaction" xml:space="preserve">
+        <code><![CDATA[@OnEvent(component="${COMPONENT default=ComponentName}")
+${RETURN_TYPE default=Object} onActionFrom${COMPONENT}(${cursor}) {
+    // TODO Add content
+    return null;
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tcomponent" xml:space="preserve">
+        <code><![CDATA[@Component(id = "${COMPONENT_ID default=componentId}", parameters = {"${PARAMETERS default=value=message}"})
+private ${COMPONENT_TYPE default="ComponentType"} ${COMPONENT_ID};
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tontranslator" xml:space="preserve">
+        <code><![CDATA[@OnEvent(value = EventConstants.TO_CLIENT, component="${COMPONENT default=ComponentName}")
+String onToClientFrom${COMPONENT}() {
+    // if (quantity == 0) return "";
+    // TODO Add content here
+    ${cursor}
+    return null;
+}
+
+@OnEvent(value = EventConstants.PARSE_CLIENT, component = "${COMPONENT}")
+Object onParseClientFrom${COMPONENT}(String input) {
+    // if ("".equals(input)) return 0;
+    // TODO Add content here
+    return null;
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tprop" xml:space="preserve">
+        <code><![CDATA[@Property
+private ${CLASS_TYPE default="Object"} ${PROP_NAME default="prop"};
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="taso" xml:space="preserve">
+        <code><![CDATA[@ApplicationState
+private ${ASO_TYPE default="ASOType"} ${ASO_NAME default="asoName"};
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tjs" xml:space="preserve">
+        <code><![CDATA[@IncludeJavaScriptLibrary("${JS default=tapestry.scriptaculous}/dragdrop.js")
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="ttest" xml:space="preserve">
+        <code><![CDATA[${parmname default="my-default-value" editable="false"}]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="jaxbu" xml:space="preserve">
+        <code><![CDATA[
+            try {
+                javax.xml.bind.JAXBContext jaxbCtx = javax.xml.bind.JAXBContext.newInstance(${UM_OBJ instanceof="java.lang.Object" default="umObj"}.getClass().getPackage().getName());
+                javax.xml.bind.Unmarshaller unmarshaller = jaxbCtx.createUnmarshaller();
+                ${UM_OBJ} = ${TYPE_CAST cast default=""} unmarshaller.unmarshal(new java.io.File("File path")); //NOI18N
+            } catch (javax.xml.bind.JAXBException ex) {
+                // XXXTODO Handle exception
+                java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
+            }
+        ]]>
+        </code>
+        <description><![CDATA[Sample template to unmarshal JAXB objects.]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="tonsetuprender" xml:space="preserve">
+        <code><![CDATA[@SetupRender
+void setupRender() {
+    // TODO Add content here
+    ${cursor}
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tonrendercomponent" xml:space="preserve">
+        <code><![CDATA[// Start component render
+@SetupRender
+void setupRender() {
+    // TODO Add content here
+    ${cursor}
+}
+
+@BeginRender
+void beginRender() {
+    // TODO Add content here
+}
+
+@BeforeRenderTemplate
+void beforeRenderTemplate() {
+    // TODO Add content here
+}
+
+@BeforeRenderBody
+void beforeRenderBody() {
+    // TODO Add content here
+}
+
+@AfterRenderBody
+void afterRenderBody() {
+    // TODO Add content here
+}
+
+@AfterRenderTemplate
+void afterRenderTemplate() {
+    // TODO Add content here
+}
+
+@AfterRender
+void afterRender() {
+    // TODO Add content here
+}
+
+@CleanupRender
+void cleanupRender() {
+    // TODO Add content here
+}
+// End component render
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tasset" xml:space="preserve">
+        <code><![CDATA[@Inject
+@Path("${PATH default=context:images/tapestry_banner.gif}")
+private Asset ${ASSET_NAME default=assetName};
+
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tonexception" xml:space="preserve">
+        <code><![CDATA[@OnEvent("exception")
+Object onException(Throwable cause) {
+    String msg = cause.getMessage();
+    ${cursor}
+    return this;
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tonpassivate" xml:space="preserve">
+        <code><![CDATA[@OnEvent(EventConstants.PASSIVATE)
+${RETURN_TYPE default="Object"} onPassivate() {
+    // TODO Add content here
+    return null;
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tcss" xml:space="preserve">
+        <code><![CDATA[@IncludeStylesheet("${CSS default=context:css/style.css}")
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="jaxbm" xml:space="preserve">
+        <code><![CDATA[try {
+                javax.xml.bind.JAXBContext jaxbCtx= javax.xml.bind.JAXBContext.newInstance( ${OBJ2M instanceof="java.lang.Object" default="obj2BMarshalled"}.getClass().getPackage().getName());
+                javax.xml.bind.Marshaller marshaller = jaxbCtx.createMarshaller();
+                marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_ENCODING, "UTF-8"); //NOI18N
+                marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+                marshaller.marshal(${OBJ2M} , System.out);
+            } catch (javax.xml.bind.JAXBException ex) {
+                // XXXTODO Handle exception
+                java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
+        }]]>
+        </code>
+        <description><![CDATA[Sample template to marshal JAXB objects.]]>
+        </description>
+    </codetemplate>
+    <codetemplate abbreviation="tonactivate" xml:space="preserve">
+        <code><![CDATA[@OnEvent(EventConstants.ACTIVATE)
+void onActivate(${cursor}) {
+    // TODO Add content here
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tpagelifecycle" xml:space="preserve">
+        <code><![CDATA[@PageLoaded
+void onPageLoaded() {
+    ${cursor}
+    // TODO Add content here
+}
+
+@PageAttached
+void onPageAttached() {
+    // TODO Add content here
+}
+
+@PageDetached
+void onPageDetached() {
+    // TODO Add content here
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tonvalidate" xml:space="preserve">
+        <code><![CDATA[@OnEvent(value = EventConstants.VALIDATE, component = "${COMPONENT default=ComponentName}")
+void onValidateFrom${COMPONENT}(${VALUE_COMPONENT default="Integer"} value) throws ValidationException {
+    //    if (value.equals(13)) {
+    //        throw new ValidationException("Thirteen is an unlucky number.");
+    //    }
+    // TODO Add content here
+}
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tinject" xml:space="preserve">
+        <code><![CDATA[@Inject
+private ${INJECT_TYPE default=ClassType} {$PROPERTY_NAME propertyName};
+]]>
+        </code>
+    </codetemplate>
+    <codetemplate abbreviation="tlog" xml:space="preserve">
+        <code><![CDATA[@Inject
+private Logger log;
+]]>
+        </code>
+    </codetemplate>
+</codetemplates>
